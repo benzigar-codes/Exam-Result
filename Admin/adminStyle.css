@@ -1,0 +1,211 @@
+* {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #FF487E;
+    overflow-x: hidden;
+}
+
+.header {
+    position: relative;
+    text-align: center;
+    left: 50%;
+    top: -90px;
+    transform: translate(-50%, -50%);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 150px;
+    line-height: 144px;
+    margin-bottom: -130px;
+    color: #000000;
+    opacity: 0.2;
+}
+
+.tagWrapper {
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    height: 59px;
+    background: #FFD5BE;
+}
+
+.tagTitle {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #000000;
+    flex: 1;
+}
+
+.tagDate {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 275;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    justify-self: left;
+    color: #000000;
+    margin-left: -40px;
+    margin-right: 80px;
+    flex: 1;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.edit {
+
+    width: 30px;
+    height: 30px;
+    flex: .5;
+}
+
+.delete {
+    width: 35px;
+    height: 35px;
+    flex: .5;
+}
+
+.addResult {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #FFD5BE;
+    padding: 15px 40px;
+}
+
+.resultHeading {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 27px;
+    color: #000000;
+}
+
+.resultForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title div {
+    display: flex;
+}
+
+.title label {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 27px;
+    color: #000000;
+}
+
+.resultIcon {
+    width: 43px;
+    height: 39px;
+    padding: 8px;
+    background: #FF487E;
+    border: 1px solid #000000;
+}
+
+.titleBox {
+    width: 210px;
+    height: 39px;
+    background: #FFEDFF;
+    border: 1px solid #000000;
+}
+
+.between {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.between label {
+    flex: 5;
+}
+
+.between div {
+    margin-left: 8px;
+    flex: .5;
+    display: flex;
+}
+
+.calendarIcon {
+    width: 43px;
+    height: 39px;
+    padding: 8px;
+    background: #FF487E;
+    border: 1px solid #000000;
+}
+
+.between div input {
+    width: 120px;
+    height: 39px;
+    background: #FFEDFF;
+    border: 1px solid #000000;
+}
+
+.submitButton {
+    width: 100%;
+    margin-top: 5px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    border: none;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #000000;
+    padding: 15px;
+    background: #FF9776;
+}
+
+.files {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="file"] {
+    position: absolute;
+    right: 1000vh;
+}
+
+.files label {
+    display: flex;
+    align-items: center;
+}
+
+.files label p {
+    width: 150px;
+    height: 39px;
+    background: #FFEDFF;
+    border: 1px solid #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fileIcon {
+    width: 43px;
+    height: 39px;
+    padding: 8px;
+    background: #FF487E;
+    border: 1px solid #000000;
+}

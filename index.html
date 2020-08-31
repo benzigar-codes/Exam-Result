@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .empty {
+      background-color: #f9d276;
+      padding: 15px;
+      border-radius: 5px;
+      color: black;
+    }
+  </style>
+  <link rel="stylesheet" href="animate.css" />
+  <title>Results</title>
+</head>
+
+<body>
+  <script src="vue.js"></script>
+  <div id="app" class="mainPage">
+    <div>
+      <img @click="page='tagPage'" class="homeIcon" src="Home.svg" alt="" />
+    </div>
+
+    <!--Tag Page-->
+    <div v-if="page=='tagPage'" class="tagPage animated fadeIn">
+      <!--Each card-->
+      <div class="empty" v-if="empty">
+        No results.. :( <br />Come back later
+      </div>
+      <div v-for="tag in tags" @click="goForm(tag)" v-else class="tagCard">
+        <div class="tagFirst">
+          <p class="tagHeading">
+            {{ tag[0] }}
+          </p>
+          <img src="go icon.svg" alt="" class="icon" />
+        </div>
+        <div class="tagSecond">
+          <p class="tagDate">Published : {{ tag[1] }}</p>
+          <p class="tagDate">Available till : {{ tag[2] }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!--Form Page-->
+    <div v-if="page=='formPage'" class="formPage animated fadeIn">
+      <form @submit.prevent="goResult">
+        <div class="formFirst">
+          <p class="formHeading">Enter the Reg No</p>
+          <img @click="page='tagPage'" class="closeIcon" src="close.svg" alt="" />
+        </div>
+        <input ref="input" required type="text" :placeholder="registerValue" name="" id="" class="formInput" />
+        <input type="submit" value="Submit" class="formSubmit" />
+      </form>
+    </div>
+
+    <!--Result Page-->
+
+    <div v-if="page=='resultPage'" class="resultPage animated fadeIn">
+      <table class="resultDetail animated flash faster">
+        <tr>
+          <td class="resultLeft">Register No :</td>
+          <td>{{ studentDetails[0] }}</td>
+        </tr>
+        <tr>
+          <td class="resultLeft">Student name :</td>
+          <td>{{ studentDetails[1] }}</td>
+        </tr>
+        <tr>
+          <td class="resultLeft">Degree</td>
+          <td>{{ studentDetails[2] }}</td>
+        </tr>
+        <tr>
+          <td class="resultLeft">Semester</td>
+          <td>{{ studentDetails[3] }}</td>
+        </tr>
+      </table>
+
+      <h1 class="resultHeading">MARK DETAILS</h1>
+      <table class="marklist  animated fadeInDown faster">
+        <tr>
+          <th class="resultTH">SI.No</th>
+          <th class="resultTH">Subject Code</th>
+          <th class="resultTH">Grade</th>
+          <th class="resultTH">Result</th>
+        </tr>
+        <tr :class="mark[1] == 'RA' ? 'fail' : 'pass'" v-for="(mark,index) in marks">
+          <td class="resultTD">{{ index + 1 }}</td>
+          <td class="resultTD">{{ mark[0] }}</td>
+          <td class="resultTD">{{ mark[1] }}</td>
+          <td class="resultTD">{{ mark[1] == "RA" ? "Fail" : "Pass" }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        page: "tagPage",
+        empty: false,
+        tags: [],
+        selectedTag: null,
+        regNo: 0,
+        studentDetails: [],
+        marks: [],
+        registerValue: "Some text"
+      },
+      created() {
+        this.fetchTags();
+      },
+      methods: {
+        fetchTags() {
+          fetch("fetch/tags.php")
+            .then(res => res.json())
+            .then(e => {
+              if (e.length == 0) this.empty = true;
+              else {
+                e.forEach(a => {
+                  this.tags.push(a);
+                });
+              }
+            });
+        },
+        goForm(tag) {
+          this.selectedTag = tag[0];
+          console.log(this.selectedTag);
+          fetch('fetch/maxmin.php?tag=' + this.selectedTag)
+            .then(e => e.text())
+            .then(re => {
+              this.registerValue = re;
+            });
+          this.page = "formPage";
+        },
+        async goResult() {
+          this.regNo = this.$refs.input.value;
+          this.studentDetails = [];
+          this.marks = [];
+          await fetch(
+              `fetch/resultStudent.php?tag=${this.selectedTag}&regNo=${
+                this.regNo
+              }`
+            )
+            .then(res => res.json())
+            .then(e => {
+              if (e.length == 0) {
+                alert("Register number not found");
+              }
+              e.forEach(a => {
+                a.forEach(f => this.studentDetails.push(f));
+              });
+            });
+          await fetch(
+              `fetch/resultMarklist.php?tag=${this.selectedTag}&regNo=${
+                this.regNo
+              }`
+            )
+            .then(res => res.json())
+            .then(e => {
+              e.forEach(a => this.marks.push(a));
+            });
+          if (this.marks.length > 0) {
+            this.page = "resultPage";
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

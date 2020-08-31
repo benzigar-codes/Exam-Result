@@ -1,0 +1,239 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #ad1d45;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.mainPage {
+    background: #ad1d45;
+    min-height: 100vh;
+    z-index: 2;
+}
+
+
+.tagPage {
+    padding-top: 20vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.formPage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.tagCard {
+    z-index: 2;
+    width: 300px;
+    height: 150px;
+    background: #f9d276;
+    box-shadow: 0px 4px 4px #670f6a;
+    border-radius: 15px;
+    padding: 15px 25px;
+    margin: 20px auto;
+}
+
+.tagFirst {
+    z-index: 2;
+    margin: 15px 0;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tagSecond {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.tagHeading {
+    z-index: 2;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 21px;
+    color: #000000;
+}
+
+.tagDate {
+    z-index: 2;
+    margin: 5px 0;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 16px;
+    color: #000000;
+}
+
+.rectangle {
+    position: fixed;
+    top: 50vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.homeIcon {
+    padding: 30px;
+    position: fixed;
+    top: 0;
+}
+
+form {
+    width: 264px;
+    height: 191px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: #f9d276;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+}
+
+.formFirst {
+    display: flex;
+    justify-content: space-between;
+}
+
+.formHeading {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: #000000;
+}
+
+.formInput {
+    width: 219px;
+    height: 36px;
+    background: #ffffff;
+    padding-left: 15px;
+    border: 0.5px solid #000000;
+    box-sizing: border-box;
+}
+
+.formSubmit {
+    width: 219px;
+    height: 46px;
+    background: #ad1d45;
+    box-shadow: 0px 4px 4px #670f6a;
+    border-radius: 9px;
+    border: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+    color: #ffffff;
+}
+
+.resultPage {
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.resultDetail {
+    margin: 0 auto;
+    width: 400px;
+    height: 156px;
+    background: #83142c;
+    padding: 15px 30px;
+    color: white;
+}
+
+.resultLeft {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 21px;
+    color: #ffffff;
+}
+
+.resultHeading {
+    margin: 0 auto;
+    padding: 20px 0;
+    padding-bottom: 40px;
+    width: 400px;
+    text-align: center;
+    background-color: white;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+    color: #000000;
+}
+
+.marklist {
+    position: relative;
+    top: -25px;
+    background: #ad1d45;
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    color: white;
+    margin: 0 auto;
+}
+
+.resultTH {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #ffffff;
+    padding: 5px 10px;
+}
+
+.resultTD {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+}
+
+.pass {
+    background: #f9d276;
+    color: black;
+}
+
+.fail {
+    background: #ff4747;
+    color: white;
+}
+
+.resultTD {
+    padding: 8px;
+}
